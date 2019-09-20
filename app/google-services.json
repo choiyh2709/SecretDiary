@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "712998856042",
+    "firebase_url": "https://secretdiary-1fa6d.firebaseio.com",
+    "project_id": "secretdiary-1fa6d",
+    "storage_bucket": "secretdiary-1fa6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712998856042:android:190a43de327571da",
+        "android_client_info": {
+          "package_name": "com.photocard.secretdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712998856042-vdhuut0neg2lmmnmfso9nk6jh68kalsk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.photocard.secretdiary",
+            "certificate_hash": "7ead839b77805815c5314692ca097ddee9759d63"
+          }
+        },
+        {
+          "client_id": "712998856042-008vm70lp70n2la5obhgeiqi85a6988i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqPsj-DTNW-GYikqxRN70PkXEr659sLLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712998856042-008vm70lp70n2la5obhgeiqi85a6988i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8610461591818507~1511747866"
+    }
+  ],
+  "configuration_version": "1"
+}

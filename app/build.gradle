@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'realm-android'
+
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.photocard.secretdiary"
+        minSdkVersion 19
+        targetSdkVersion 28
+        multiDexEnabled true
+        versionCode 4
+        versionName "1.0.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            // 프로가드 활성화
+            minifyEnabled true
+            // 기본 프로가드 설정
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+            // 프로젝트에 필요한 프로가드 설정
+            proguardFile 'proguard-rules.pro'
+        }
+    }
+    realm {
+        syncEnabled = true
+        //아래의 코드는 kotlin extension 사용 시 추가
+        kotlinExtensionsEnabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':richeditor-release')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.3.1'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta03'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true
+    }
+    implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation 'gun0912.ted:tedpermission:2.2.2'
+}

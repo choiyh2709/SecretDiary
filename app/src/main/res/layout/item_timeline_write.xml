@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:visibility="visible"
+                  android:layout_gravity="center_horizontal"
+    >
+
+        <View android:layout_width="4dp" android:layout_height="4dp"
+              android:layout_gravity="center"
+              android:layout_marginTop="16dp"
+              android:background="@drawable/oval_full_gray"
+        />
+
+
+        <View android:layout_width="4dp" android:layout_height="4dp"
+              android:layout_gravity="center"
+              android:layout_marginTop="8dp"
+              android:background="@drawable/oval_full_gray"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginTop="16dp"
+                  android:id="@+id/ll_write"
+                  android:background="?attr/selectableItemBackground"
+                  android:orientation="vertical"
+                  android:visibility="visible"
+                  android:layout_gravity="center_horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/tv_write_date"
+                  android:layout_gravity="center"
+                  android:textColor="@color/dark_grey"
+                  android:textSize="12sp"
+                  android:text="19.01.01"
+        />
+
+        <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_gravity="center"
+                   android:id="@+id/iv_weather"
+                   android:src="@drawable/sun"
+        />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/tv_write_tag"
+                  android:layout_marginTop="8dp"
+                  android:layout_gravity="center"
+                  android:textColor="@color/black"
+                  android:textSize="16sp"
+                  android:text="# 너에게 닿기를"
+        />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/tv_write_title"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="8dp"
+                  android:textColor="@color/dark_grey"
+                  android:textSize="14sp"
+                  android:text="D+100"
+        />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="80dp"
+          android:id="@+id/last_view"
+          android:visibility="gone"
+    />
+</LinearLayout>

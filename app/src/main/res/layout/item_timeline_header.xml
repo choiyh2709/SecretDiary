@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/ll_user_info"
+                  android:layout_marginTop="60dp"
+                  android:layout_marginBottom="20dp"
+                  android:layout_centerHorizontal="true"
+                  android:orientation="horizontal"
+    >
+
+        <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                   android:id="@+id/iv_user_profile"
+                   android:layout_gravity="center"
+                   android:src="@drawable/ic_profile"
+        />
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:layout_gravity="center_vertical"
+                      android:orientation="horizontal"
+        >
+
+            <View android:layout_width="4dp" android:layout_height="4dp"
+                  android:layout_marginStart="4dp"
+                  android:layout_marginEnd="2dp"
+                  android:layout_gravity="center_vertical"
+                  android:background="@drawable/oval_full_gray"
+            />
+
+            <View android:layout_width="4dp" android:layout_height="4dp"
+                  android:layout_marginEnd="4dp"
+                  android:layout_marginStart="2dp"
+                  android:layout_gravity="center_vertical"
+                  android:background="@drawable/oval_full_gray"
+            />
+
+            <ImageView android:layout_width="16dp" android:layout_height="16dp"
+                       android:background="@drawable/heart"
+            />
+
+            <View android:layout_width="4dp" android:layout_height="4dp"
+                  android:layout_marginStart="4dp"
+                  android:layout_marginEnd="2dp"
+                  android:layout_gravity="center_vertical"
+                  android:background="@drawable/oval_full_gray"
+            />
+
+            <View android:layout_width="4dp" android:layout_height="4dp"
+                  android:layout_marginStart="2dp"
+                  android:layout_marginEnd="4dp"
+                  android:layout_gravity="center_vertical"
+                  android:background="@drawable/oval_full_gray"
+            />
+        </LinearLayout>
+
+        <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                   android:id="@+id/iv_target_profile"
+                   android:layout_gravity="center"
+                   android:src="@drawable/ic_profile"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_below="@+id/ll_user_info"
+    >
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:layout_gravity="center" android:layout_marginTop="36dp"
+                      android:orientation="vertical"
+                      android:id="@+id/ll_user_day"
+                      android:background="?attr/selectableItemBackground"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:textColor="@color/black"
+                      android:textSize="16sp"
+                      android:text="# 너에게 닿기를"
+            />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:id="@+id/tv_user_day"
+                      android:layout_gravity="center"
+                      android:layout_marginTop="8dp"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="14sp"
+            />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

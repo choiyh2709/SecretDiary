@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+    <RelativeLayout
+            android:id="@+id/rl_editor_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/back_line" />
+
+        <RelativeLayout
+                android:id="@+id/rl_editor_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+        >
+
+            <ImageView
+                    android:id="@+id/iv_calender"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/calendar" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:id="@+id/tv_edit_date"
+                      android:layout_toEndOf="@+id/iv_calender"
+                      android:layout_centerVertical="true"
+                      android:layout_marginStart="4dp"
+                      android:textColor="@color/black"
+                      android:layout_marginEnd="16dp"
+                      android:text="2019.08.22"
+                      android:textSize="14sp"
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+
+
+            <RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                            android:id="@+id/rv_weather"
+                            android:background="?attr/selectableItemBackground"
+            >
+
+                <ImageView
+                        android:id="@+id/iv_weather"
+                        android:layout_centerVertical="true"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:src="@drawable/sun"
+                        android:textSize="14sp"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                    android:background="?attr/selectableItemBackground"
+                    android:id="@+id/tv_editor_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/rv_weather"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="저장"
+                    android:textColor="@color/blue"
+                    android:textSize="14sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_editor_toolbar">
+
+        <RelativeLayout
+                android:id="@+id/rl_editor_category"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="visible">
+
+            <EditText
+                    android:id="@+id/et_editor_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/tv_editor_tag_cnt"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="# 태그"
+                    android:maxLength="12"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/lite_grey"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_editor_tag_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:text="0/12"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/back_line" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/rl_editor_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/rl_editor_category">
+
+            <EditText
+                    android:id="@+id/et_editor_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/tv_editor_title_cnt"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:hint="제목"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/lite_grey"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_editor_title_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:text="0/20"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/back_line" />
+
+        </RelativeLayout>
+
+        <jp.wasabeef.richeditor.RichEditor
+                android:id="@+id/re_editor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/ll_editor_tool"
+                android:layout_below="@+id/rl_editor_title">
+
+        </jp.wasabeef.richeditor.RichEditor>
+
+        <LinearLayout
+                android:id="@+id/ll_editor_tool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/back_line" />
+
+            <com.photocard.secretdiary.custom.BoardEditorToolLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+            </com.photocard.secretdiary.custom.BoardEditorToolLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/ll_weather_list"
+                  android:orientation="vertical"
+                  android:background="@color/white"
+                  android:visibility="gone"
+                  android:layout_marginEnd="49dp"
+                  android:layout_marginTop="40dp"
+                  android:layout_alignParentEnd="true"
+    >
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                        android:id="@+id/rv_sun"
+                        android:background="?attr/selectableItemBackground"
+        >
+
+            <ImageView
+                    android:id="@+id/iv_sun"
+                    android:layout_centerVertical="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:src="@drawable/sun"
+                    android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                        android:id="@+id/rv_cloudy"
+                        android:background="?attr/selectableItemBackground"
+        >
+
+            <ImageView
+                    android:id="@+id/iv_cloudy"
+                    android:layout_centerVertical="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:src="@drawable/cloudy"
+                    android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                        android:id="@+id/rv_cloud"
+                        android:background="?attr/selectableItemBackground"
+        >
+
+            <ImageView
+                    android:id="@+id/iv_cloud"
+                    android:layout_centerVertical="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:src="@drawable/cloud"
+                    android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                        android:id="@+id/rv_rainy"
+                        android:background="?attr/selectableItemBackground"
+        >
+
+            <ImageView
+                    android:id="@+id/iv_rainy"
+                    android:layout_centerVertical="true"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:src="@drawable/rainy"
+                    android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

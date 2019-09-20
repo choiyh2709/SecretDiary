@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".view.SaveUserFragment">
+
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+    >
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/tv_info_title"
+                  android:layout_gravity="center"
+                  android:textColor="@color/black"
+                  android:layout_marginTop="50dp"
+                  android:layout_centerHorizontal="true"
+                  android:text="내 정보 입력"
+                  android:textSize="16dp"
+        />
+
+        <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                   android:id="@+id/iv_user_profile"
+                   android:layout_below="@+id/tv_info_title"
+                   android:layout_centerHorizontal="true"
+                   android:layout_marginTop="24dp"
+                   android:layout_gravity="center"
+                   android:src="@drawable/ic_profile"
+        />
+
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/et_user_name"
+                  android:layout_below="@+id/iv_user_profile"
+                  android:layout_marginTop="48dp"
+                  android:singleLine="true"
+                  android:gravity="center"
+                  android:textSize="16sp"
+                  android:textColorHint="@color/grey"
+                  android:background="@null"
+                  android:hint="이름 / 별명"
+                  android:textColor="@color/black"
+        />
+
+    </RelativeLayout>
+
+</RelativeLayout>
