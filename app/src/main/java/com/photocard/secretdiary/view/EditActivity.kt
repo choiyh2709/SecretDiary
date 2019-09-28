@@ -9,18 +9,18 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.data.UserInfo
 import com.photocard.secretdiary.data.WriteInfo
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
+import gun0912.tedbottompicker.TedBottomPicker
 import io.realm.Realm
 import io.realm.Sort
 import jp.wasabeef.richeditor.RichEditor
@@ -30,7 +30,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class EditActivity : AppCompatActivity() {
+class EditActivity : BaseActivity() {
     private var isBold = false
     private var isItalic = false
     private var isHead = false
@@ -247,10 +247,22 @@ class EditActivity : AppCompatActivity() {
 
         rl_editor_image.setOnClickListener {
             re_editor.focusEditor()
-
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.type = "image/*"
-            startActivityForResult(intent, RC_GALLERY)
+//
+//            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//            intent.type = "image/*"
+//            startActivityForResult(intent, RC_GALLERY)
+            TedBottomPicker.with(this@EditActivity)
+                .show {
+                    val contentUri = it
+                    val filePath = getRealPathFromURI(contentUri)
+                    if (filePath != null && !filePath.contains("gif")) run {
+                        CropImage.activity(contentUri)
+                            .setGuidelines(CropImageView.Guidelines.ON)
+                            .start(this)
+                    } else {
+                        re_editor.insertImage(contentUri.toString(), "photo")
+                    }
+                }
         }
 
         tv_editor_edit.setOnClickListener {
@@ -305,7 +317,6 @@ class EditActivity : AppCompatActivity() {
                 writeInfo.weather = mWeather
                 writeInfo.content = re_editor.html
 
-                Log.d("movie-tt", mRealm.where(WriteInfo::class.java).equalTo("insDate", mDate).findAll().size.toString())
                 if (mRealm.where(WriteInfo::class.java).equalTo("insDate", mDate).findAll().size == 0){
                     val userInfo = mRealm.where(UserInfo::class.java).findFirst() ?: return@executeTransaction
                     userInfo.point = userInfo.point.plus(1)
@@ -387,20 +398,6 @@ class EditActivity : AppCompatActivity() {
 
         if (resultCode == RESULT_OK) {
             when (requestCode) {
-                RC_GALLERY -> {
-                    if (data == null) {
-                        return
-                    }
-                    val contentUri = data.data
-                    val filePath = getRealPathFromURI(contentUri)
-                    if (filePath != null && !filePath.contains("gif")) run {
-                        CropImage.activity(contentUri)
-                            .setGuidelines(CropImageView.Guidelines.ON)
-                            .start(this)
-                    } else {
-                        re_editor.insertImage(contentUri.toString(), "photo")
-                    }
-                }
                 CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
                     if (data == null) return
                     val result = CropImage.getActivityResult(data)

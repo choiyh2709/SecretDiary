@@ -3,11 +3,11 @@ package com.photocard.secretdiary.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.appcompat.app.AppCompatActivity
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import kotlinx.android.synthetic.main.activity_info_save.*
 
-class InfoSaveActivity : AppCompatActivity() {
+class InfoSaveActivity : BaseActivity() {
     private val mAdapter = SaveInfoViewPagerAdapter(supportFragmentManager)
 
     override fun onCreate(savedInstanceState: Bundle?) {

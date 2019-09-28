@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.photocard.secretdiary.R
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.fragment_save_target.*
@@ -81,7 +82,10 @@ class SaveTargetFragment : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == cGallery) {
                 mProfileUri = data?.data.toString()
-                Glide.with(mContext).load(data?.data).centerCrop().bitmapTransform(CropCircleTransformation(context)).into(iv_user_profile)
+                Glide.with(mContext).load(data?.data).centerCrop().apply(
+                    RequestOptions.bitmapTransform(
+                        CropCircleTransformation()
+                    )).into(iv_user_profile)
             }
         }
     }

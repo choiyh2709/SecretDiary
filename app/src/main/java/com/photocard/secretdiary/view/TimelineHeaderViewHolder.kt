@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.photocard.secretdiary.R
 import com.photocard.secretdiary.custom.CustomViewHolder
 import com.photocard.secretdiary.data.UserInfo
@@ -33,12 +34,12 @@ class TimelineHeaderViewHolder(view: View, private val onTimelineHeaderListener:
 
         if (userInfo.userProfileImg != null) {
             Glide.with(mContext).load(userInfo.userProfileImg).centerCrop()
-                .bitmapTransform(CropCircleTransformation(mContext)).into(mUserProfile)
+                .apply(RequestOptions.bitmapTransform(CropCircleTransformation())).into(mUserProfile)
         }
 
         if(userInfo.targetProfileImg != null) {
             Glide.with(mContext).load(userInfo.targetProfileImg).centerCrop()
-                .bitmapTransform(CropCircleTransformation(mContext)).into(mTargetProfile)
+                .apply(RequestOptions.bitmapTransform(CropCircleTransformation())).into(mTargetProfile)
         }
 
         val day = 60 * 60 * 24 * 1000

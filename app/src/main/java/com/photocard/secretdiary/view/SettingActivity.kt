@@ -7,10 +7,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.custom.RealmBackupRestore
 import com.photocard.secretdiary.data.UserInfo
 import com.photocard.secretdiary.data.WriteInfo
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_setting.*
 
 
 
-class SettingActivity : AppCompatActivity() {
+class SettingActivity : BaseActivity() {
     private val cLockSetting = 100
     private val cPasswordSetting = 101
     private var mUserInfo: UserInfo? = null

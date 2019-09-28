@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.data.UserInfo
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_lock.*
 
-class LockActivity : AppCompatActivity() {
+class LockActivity : BaseActivity() {
     private var mPasswordPosition = 0
     private var mPassword: String = ""
     private var mComparePassword: String = ""

@@ -4,16 +4,17 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.data.WriteInfo
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_viewer.*
 
 
 
-class ViewerActivity : AppCompatActivity() {
+class ViewerActivity : BaseActivity() {
     private lateinit var mWriteInfo: WriteInfo
     private val mRealm = Realm.getDefaultInstance()
 
@@ -43,7 +44,12 @@ class ViewerActivity : AppCompatActivity() {
         re_viewer.setEditorFontSize(14)
         re_viewer.loadCSS("file:///android_asset/img.css")
 
-        re_viewer.html = mWriteInfo.content
+        Log.d("movie", mWriteInfo.content)
+        val style = "<style>\n" +
+                "@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');\n" +
+                "*{font-family: 'Jua';}\n"+
+                "</style>"
+        re_viewer.html = mWriteInfo.content + style
 
         tv_viewer_modify.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)

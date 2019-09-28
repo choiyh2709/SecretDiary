@@ -8,19 +8,22 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.data.UserInfo
 import com.photocard.secretdiary.data.WriteInfo
 import io.realm.Realm
 import io.realm.RealmResults
 import io.realm.Sort
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity(), TimelineHeaderViewHolder.OnTimelineHeaderListener {
+
+
+class MainActivity : BaseActivity(), TimelineHeaderViewHolder.OnTimelineHeaderListener, com.borax12.materialdaterangepicker.date.DatePickerDialog.OnDateSetListener {
     private val mContext: Context by lazy { this@MainActivity }
     private val cEdit = 200
     private val cSettings = 300
@@ -87,6 +90,44 @@ class MainActivity : AppCompatActivity(), TimelineHeaderViewHolder.OnTimelineHea
                 }
             }
         })
+
+        //날짜 필터
+        iv_date_filter.setOnClickListener {
+            val now = Calendar.getInstance()
+            val datePickerDialog = com.borax12.materialdaterangepicker.date.DatePickerDialog.newInstance(
+                this@MainActivity,
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.show(fragmentManager,"DatePickerDialog")
+        }
+    }
+
+    override fun onDateSet(
+        view: com.borax12.materialdaterangepicker.date.DatePickerDialog?,
+        year: Int,
+        monthOfYear: Int,
+        dayOfMonth: Int,
+        yearEnd: Int,
+        monthOfYearEnd: Int,
+        dayOfMonthEnd: Int
+    ) {
+        var startDay = "$year.${monthOfYear + 1}.$dayOfMonth"
+        var endDay = "$yearEnd.${monthOfYearEnd + 1}.$dayOfMonthEnd"
+        val dateFormat1 = SimpleDateFormat("yyyy.mm.dd", Locale.KOREA)
+        val dateFormat2 = SimpleDateFormat("yyyy.mm.DD", Locale.KOREA)
+
+        val date1 = dateFormat1.parse(startDay)
+        val date2 = dateFormat1.parse(endDay)
+
+        startDay = dateFormat2.format(date1)
+        endDay = dateFormat2.format(date2)
+
+        val localList = mRealm.where(WriteInfo::class.java).`in`("date", arrayOf(startDay, endDay)).findAll()
+
+        mAdapter.setData(localList)
+        mAdapter.notifyDataSetChanged()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

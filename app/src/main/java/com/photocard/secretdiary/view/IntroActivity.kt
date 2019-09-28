@@ -2,15 +2,15 @@ package com.photocard.secretdiary.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.photocard.secretdiary.R
+import com.photocard.secretdiary.custom.BaseActivity
 import com.photocard.secretdiary.data.UserInfo
 import io.realm.Realm
 
-class IntroActivity : AppCompatActivity() {
+class IntroActivity : BaseActivity() {
     private val mRealm = Realm.getDefaultInstance()
     private lateinit var mInterstitialAd: InterstitialAd
 
