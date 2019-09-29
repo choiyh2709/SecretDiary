@@ -4,10 +4,10 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.photocard.secretdiary.R
 import com.photocard.secretdiary.custom.BaseActivity
+import com.photocard.secretdiary.data.UserInfo
 import com.photocard.secretdiary.data.WriteInfo
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_viewer.*
@@ -44,11 +44,23 @@ class ViewerActivity : BaseActivity() {
         re_viewer.setEditorFontSize(14)
         re_viewer.loadCSS("file:///android_asset/img.css")
 
-        Log.d("movie", mWriteInfo.content)
-        val style = "<style>\n" +
+        val userInfo = mRealm.where(UserInfo::class.java).findFirst()
+        var style = ""
+        when(userInfo?.font){
+            0 -> style  = "<style>\n" +
+                    "@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap');\n" +
+                    "*{font-family: 'Nanum Gothic Coding', monospace;}\n"+
+                    "</style>"
+            1 -> style = "<style>\n" +
                 "@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');\n" +
                 "*{font-family: 'Jua';}\n"+
                 "</style>"
+            2 -> style = "<style>\n" +
+                "@import url('https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap');\n" +
+                "*{font-family: 'Gamja Flower', cursive;}\n"+
+                "</style>"
+        }
+
         re_viewer.html = mWriteInfo.content + style
 
         tv_viewer_modify.setOnClickListener {

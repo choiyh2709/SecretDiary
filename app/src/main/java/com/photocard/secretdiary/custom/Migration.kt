@@ -3,6 +3,7 @@ package com.photocard.secretdiary.custom
 import io.realm.DynamicRealm
 import io.realm.RealmMigration
 import io.realm.RealmSchema
+import java.util.*
 
 class Migration: RealmMigration {
     /**
@@ -17,15 +18,24 @@ class Migration: RealmMigration {
     override fun migrate(realm: DynamicRealm, oldVersion: Long, newVersion: Long) {
         val schema: RealmSchema = realm.schema
 
-
         if (oldVersion == 1L){
-            val userSchema = schema.get("UserInfo")
-
-            userSchema?.addField("isLock", Boolean::class.java)?.transform { obj -> obj.set("isLock", false) }
-            userSchema?.addField("password", String::class.java)?.setRequired("password", true)?.transform { obj -> obj.set("password", "") }
-
             val writeSchema = schema.get("WriteInfo")
-            writeSchema?.addField("insDate", String::class.java)?.setRequired("insDate", true)?.transform { obj -> obj.set("password", "") }
+            writeSchema?.addField("date2", Date::class.java)?.transform {
+                obj ->  obj.set("date2", Date())
+            }
+
+            val userSchema = schema.get("UserInfo")
+            userSchema?.addField("font", Int::class.java)?.transform {
+                obj ->  obj.set("font", 0)
+            }
+
+            schema.create("FontInfo")
+                .addField("idx", String::class.java)
+                .addField("possession", Boolean::class.java)
+                .addField("adCnt", Int::class.java)
+
+            var oldVersion1 = oldVersion
+            oldVersion1++
         }
     }
 }

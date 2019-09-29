@@ -11,6 +11,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -151,6 +152,41 @@ class EditActivity : BaseActivity() {
         re_editor.setPlaceholder("내용")
         re_editor.loadCSS("file:///android_asset/img.css")
         re_editor.setOnDecorationChangeListener { _, list -> changeStatus(list) }
+
+        val userInfo = mRealm.where(UserInfo::class.java).findFirst()
+        var style = ""
+        when(userInfo?.font){
+            0 -> {
+                val type = ResourcesCompat.getFont(this, R.font.nanum_gothic)
+                et_editor_tag.typeface = type
+                et_editor_title.typeface = type
+                style = "<style>\n" +
+                        "@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap');\n" +
+                        "*{font-family: 'Nanum Gothic Coding', monospace;}\n" +
+                        "</style>"
+
+            }
+            1 -> {
+                val type = ResourcesCompat.getFont(this, R.font.bmjua)
+                et_editor_tag.typeface = type
+                et_editor_title.typeface = type
+                style = "<style>\n" +
+                        "@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');\n" +
+                        "*{font-family: 'Jua';}\n" +
+                        "</style>"
+            }
+            2 -> {
+                val type = ResourcesCompat.getFont(this, R.font.gamja_flower)
+                et_editor_tag.typeface = type
+                et_editor_title.typeface = type
+                style = "<style>\n" +
+                        "@import url('https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap');\n" +
+                        "*{font-family: 'Gamja Flower', cursive;}\n"+
+                        "</style>"
+            }
+        }
+
+        re_editor.html = style
 
         re_editor.setOnTextChangeListener {
             isTemporaryStorage = false

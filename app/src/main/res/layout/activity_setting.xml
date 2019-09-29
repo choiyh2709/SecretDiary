@@ -76,6 +76,52 @@
 
             </RelativeLayout>
 
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/back_line" />
+
+            <RelativeLayout
+                    android:id="@+id/rl_font"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tv_font_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="글꼴"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:id="@+id/tv_font_now"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="나눔고딕체"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:layout_below="@+id/tv_font_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:text="앱 글꼴을 변경합니다."
+                        android:textColor="@color/lite_grey"
+                        android:textSize="12sp" />
+            </RelativeLayout>
+
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"

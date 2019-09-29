@@ -13,8 +13,8 @@ class MyApplication : MultiDexApplication(){
         Fabric.with(this, Crashlytics())
 
         val config = RealmConfiguration.Builder()
-            //.deleteRealmIfMigrationNeeded()
-            .schemaVersion(1)
+//            .deleteRealmIfMigrationNeeded()
+            .schemaVersion(2)
             .migration(Migration())
             .build()
 

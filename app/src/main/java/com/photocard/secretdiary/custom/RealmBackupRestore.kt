@@ -12,6 +12,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
+import kotlin.system.exitProcess
 
 
 class RealmBackupRestore(private val activity: Activity) {
@@ -53,7 +54,7 @@ class RealmBackupRestore(private val activity: Activity) {
         val restoreFilePath = "$EXPORT_REALM_PATH/$EXPORT_REALM_FILE_NAME"
         copyBundledRealmFile(restoreFilePath, IMPORT_REALM_FILE_NAME)
 
-        Handler().postDelayed({ System.exit(0) },300)
+        Handler().postDelayed({ exitProcess(0) },300)
     }
 
     private fun copyBundledRealmFile(oldFilePath: String, outFileName: String): String? {

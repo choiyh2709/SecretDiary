@@ -11,4 +11,5 @@ open class UserInfo : RealmObject() {
     var isLock: Boolean = false
     var password: String? = null
     var point: Int = 0
+    var font: Int? = 0
 }

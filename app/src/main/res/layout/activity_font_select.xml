@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".view.FontSelectActivity">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="글꼴"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+
+    <TextView
+            android:id="@+id/tv_nanum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:padding="16dp"
+            android:text="나눔고딕체"
+            android:fontFamily="@font/nanum_gothic"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="?attr/selectableItemBackground"
+            />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="1dp"
+            android:background="@color/back_line"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:id="@+id/tv_bm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:padding="16dp"
+                android:text="배민주아체"
+                android:fontFamily="@font/bmjua"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:background="?attr/selectableItemBackground"
+                />
+
+        <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_toStartOf="@+id/tv_letter_cnt"
+                android:src="@drawable/love_letter" />
+
+        <TextView
+                android:id="@+id/tv_letter_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:text="x15"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp"
+                />
+
+    </RelativeLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="1dp"
+            android:background="@color/back_line"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+                android:id="@+id/tv_gf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:padding="16dp"
+                android:text="감자꽃체"
+               android:fontFamily="@font/gamja_flower"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:background="?attr/selectableItemBackground"
+                />
+
+        <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_toStartOf="@+id/tv_ad_cnt"
+                android:src="@drawable/video_player" />
+
+        <TextView
+                android:id="@+id/tv_ad_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:text="0/3"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp"
+                />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

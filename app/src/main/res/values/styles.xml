@@ -12,11 +12,35 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textViewStyle">@style/TextViewStyle</item>
-        <item name="android:buttonStyle">@style/ButtonStyle</item>
-        <item name="android:editTextStyle">@style/EditTextStyle</item>
-        <item name="android:radioButtonStyle">@style/RadioButtonStyle</item>
-        <item name="android:checkboxStyle">@style/CheckboxStyle</item>
+        <item name="android:textViewStyle">@style/TextViewStyle_bm</item>
+        <item name="android:buttonStyle">@style/ButtonStyle_bm</item>
+        <item name="android:editTextStyle">@style/EditTextStyle_bm</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle_bm</item>
+        <item name="android:checkboxStyle">@style/CheckboxStyle_bm</item>
+    </style>
+
+    <style name="AppThemeNaunmGothic" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/TextViewStyle_na</item>
+        <item name="android:buttonStyle">@style/ButtonStyle_na</item>
+        <item name="android:editTextStyle">@style/EditTextStyle_na</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle_na</item>
+        <item name="android:checkboxStyle">@style/CheckboxStyle_na</item>
+    </style>
+
+    <style name="AppThemeGamjaFlower" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/TextViewStyle_gf</item>
+        <item name="android:buttonStyle">@style/ButtonStyle_gf</item>
+        <item name="android:editTextStyle">@style/EditTextStyle_gf</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle_gf</item>
+        <item name="android:checkboxStyle">@style/CheckboxStyle_gf</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -28,23 +52,65 @@
     </style>
 
     <!-- Custom font style 일괄적용 -->
-    <style name="TextViewStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+    <style name="TextViewStyle_bm" parent="@android:style/Widget.DeviceDefault.TextView">
         <item name="android:fontFamily">@font/bmjua</item>
     </style>
 
-    <style name="ButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+    <style name="ButtonStyle_bm" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
         <item name="android:fontFamily">@font/bmjua</item>
     </style>
 
-    <style name="EditTextStyle" parent="@android:style/Widget.DeviceDefault.EditText">
+    <style name="EditTextStyle_bm" parent="@android:style/Widget.DeviceDefault.EditText">
         <item name="android:fontFamily">@font/bmjua</item>
     </style>
 
-    <style name="RadioButtonStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+    <style name="RadioButtonStyle_bm" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
         <item name="android:fontFamily">@font/bmjua</item>
     </style>
 
-    <style name="CheckboxStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+    <style name="CheckboxStyle_bm" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
         <item name="android:fontFamily">@font/bmjua</item>
+    </style>
+
+    <!-- Custom font style 일괄적용 -->
+    <style name="TextViewStyle_na" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/nanum_gothic</item>
+    </style>
+
+    <style name="ButtonStyle_na" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:fontFamily">@font/nanum_gothic</item>
+    </style>
+
+    <style name="EditTextStyle_na" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:fontFamily">@font/nanum_gothic</item>
+    </style>
+
+    <style name="RadioButtonStyle_na" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/nanum_gothic</item>
+    </style>
+
+    <style name="CheckboxStyle_na" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/nanum_gothic</item>
+    </style>
+
+    <!-- Custom font style 일괄적용 -->
+    <style name="TextViewStyle_gf" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/gamja_flower</item>
+    </style>
+
+    <style name="ButtonStyle_gf" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:fontFamily">@font/gamja_flower</item>
+    </style>
+
+    <style name="EditTextStyle_gf" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:fontFamily">@font/gamja_flower</item>
+    </style>
+
+    <style name="RadioButtonStyle_gf" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/gamja_flower</item>
+    </style>
+
+    <style name="CheckboxStyle_gf" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/gamja_flower</item>
     </style>
 </resources>

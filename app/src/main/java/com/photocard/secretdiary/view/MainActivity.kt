@@ -8,6 +8,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.photocard.secretdiary.R
@@ -113,21 +114,26 @@ class MainActivity : BaseActivity(), TimelineHeaderViewHolder.OnTimelineHeaderLi
         monthOfYearEnd: Int,
         dayOfMonthEnd: Int
     ) {
-        var startDay = "$year.${monthOfYear + 1}.$dayOfMonth"
-        var endDay = "$yearEnd.${monthOfYearEnd + 1}.$dayOfMonthEnd"
+        val startDay = "$year.${monthOfYear + 1}.$dayOfMonth"
+        val endDay = "$yearEnd.${monthOfYearEnd + 1}.$dayOfMonthEnd"
         val dateFormat1 = SimpleDateFormat("yyyy.mm.dd", Locale.KOREA)
         val dateFormat2 = SimpleDateFormat("yyyy.mm.DD", Locale.KOREA)
 
         val date1 = dateFormat1.parse(startDay)
         val date2 = dateFormat1.parse(endDay)
 
-        startDay = dateFormat2.format(date1)
-        endDay = dateFormat2.format(date2)
+        var localList = mRealm.where(WriteInfo::class.java).findAll()
 
-        val localList = mRealm.where(WriteInfo::class.java).`in`("date", arrayOf(startDay, endDay)).findAll()
+        mRealm.executeTransaction {
+            for (i in localList.indices){
+                localList[i]?.date2 = dateFormat2.parse(localList[i]?.date)
+            }
+        }
 
+        localList = mRealm.where(WriteInfo::class.java).between("date2", date1, date2).findAll().sort("idx", Sort.DESCENDING).sort("date", Sort.DESCENDING)
         mAdapter.setData(localList)
         mAdapter.notifyDataSetChanged()
+        Toast.makeText(mContext, "검색이 완료되었습니다.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

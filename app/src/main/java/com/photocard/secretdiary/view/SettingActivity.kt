@@ -44,6 +44,16 @@ class SettingActivity : BaseActivity() {
 
         mUserInfo?.let {
             swh_lock.isChecked = it.isLock
+            tv_font_now.text = when(mUserInfo?.font){
+                0 -> "나눔고딕체"
+                1 -> "배민주아체"
+                else -> "감자꽃체"
+            }
+        }
+
+        rl_font.setOnClickListener {
+            val intent = Intent(this@SettingActivity, FontSelectActivity::class.java)
+            startActivity(intent)
         }
 
         swh_lock.setOnCheckedChangeListener { _, b ->
